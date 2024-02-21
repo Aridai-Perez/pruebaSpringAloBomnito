@@ -3,11 +3,13 @@ import lombok.Data;
 import jakarta.persistence.*;
 
 @Data
+@Entity (name = "administrador")
 @Table (name = "administrador")
 public class Administrador {
 	@Id
-	@Column(name = "idAdministrador", unique=true)
-	private int idAdministrador;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_administrador", unique=true)
+	private Long id_administrador;
 	
 	@Column(name ="nombre")
 	private String nombre;
@@ -19,6 +21,6 @@ public class Administrador {
 	private String correo;
 	
 	@Column(unique = true)
-	private String numAdministrador;
+	private String num_administrador;
 	
 }

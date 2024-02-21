@@ -15,31 +15,32 @@ import org.springframework.web.bind.annotation.RestController;
 import com.AloBomnito.modelo.copy.*;
 import com.AloBomnito.service.copy.*;
 
+
 @RestController
-@RequestMapping(path = "api/v1/administrador")
+@RequestMapping(path = "api/v1/Admins")
 public class AdministradorController {
 	
 	@Autowired
-	public AdministradoresService adminService;
+	private final AdministradoresService administradoresService = new AdministradoresService();
 	
 	@GetMapping
 	public List<Administrador> getAll(){
-		return adminService.getAdmins();
+		return administradoresService.getAdmins();
 	}
 	
 	@PostMapping
-	public void saveUpdate(@RequestBody Administrador administrador){
-		adminService.saveOrUpdate(administrador);
+	public void saveOrUpdate(@RequestBody Administrador administrador){
+		administradoresService.saveOrUpdate(administrador);
 	}
 	
-	@DeleteMapping("/{idAministrador}")
-	public void saveUpdate(@PathVariable("idAdministrador") int idAdministrador){
-		adminService.delete(idAdministrador);
+	@DeleteMapping("/{id_aministrador}")
+	public void saveUpdate(@PathVariable("id_administrador") Long id_administrador){
+		administradoresService.delete(id_administrador);
 	}
 
-	@GetMapping("/{idAdministrador}")
-	public Optional<Administrador> getById(@PathVariable("idAdministrador") int idAdministrador){
-		return adminService.getAdmin(idAdministrador);
+	@GetMapping("/{id_administrador}")
+	public Optional<Administrador> getById(@PathVariable("id_administrador") Long id_administrador){
+		return administradoresService.getAdmin(id_administrador);
 	}
 	
 }
