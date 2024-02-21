@@ -33,14 +33,14 @@ public class AdministradorController {
 		administradoresService.saveOrUpdate(administrador);
 	}
 	
-	@DeleteMapping("/{id_aministrador}")
-	public void saveUpdate(@PathVariable("id_administrador") Long id_administrador){
-		administradoresService.delete(id_administrador);
+	@DeleteMapping("/{idAdministrador}")
+	public void saveUpdate(@PathVariable Integer idAdministrador){
+		administradoresService.delete(idAdministrador);
 	}
 
-	@GetMapping("/{id_administrador}")
-	public Optional<Administrador> getById(@PathVariable("id_administrador") Long id_administrador){
-		return administradoresService.getAdmin(id_administrador);
+	@GetMapping("/{idAdministrador}")
+	public Optional<Administrador> getById(@PathVariable("idAdministrador") Integer idAdministrador){
+		return administradoresService.getAdmin(idAdministrador);
 	}
 	
 }

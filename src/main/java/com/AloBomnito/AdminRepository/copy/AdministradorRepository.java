@@ -5,7 +5,9 @@ import com.AloBomnito.modelo.copy.Administrador;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
-public interface AdministradorRepository extends JpaRepository<Administrador, Long>{
+public interface AdministradorRepository extends JpaRepository<Administrador, Integer>{
+
+	
 	
 
 }

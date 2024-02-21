@@ -20,15 +20,15 @@ public class AdministradoresService {
 		return adminRepository.findAll();
 	}
 	
-	public Optional<Administrador> getAdmin(Long id_administrador){
-		return adminRepository.findById(id_administrador);
+	public Optional<Administrador> getAdmin(Integer idAdministrador){
+		return adminRepository.findById(idAdministrador);
 	}
 	
 	public void saveOrUpdate(Administrador administrador) {
 		adminRepository.save(administrador);
 	}
 	
-	public void delete(Long id_administrador) {
-		adminRepository.deleteById(id_administrador);
+	public void delete(Integer idAdministrador) {
+		adminRepository.deleteById(idAdministrador);
 	}
 }
