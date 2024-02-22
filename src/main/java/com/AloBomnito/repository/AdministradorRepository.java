@@ -1,6 +1,7 @@
-package com.AloBomnito.AdminRepository.copy;
+package com.AloBomnito.repository;
 import org.springframework.stereotype.*;
-import com.AloBomnito.modelo.copy.Administrador;
+
+import com.AloBomnito.modelos.Administrador;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

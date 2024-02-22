@@ -1,4 +1,4 @@
-package com.AloBomnito.modelo.copy;
+package com.AloBomnito.modelos;
 //import lombok.Data;
 import jakarta.persistence.*;
 

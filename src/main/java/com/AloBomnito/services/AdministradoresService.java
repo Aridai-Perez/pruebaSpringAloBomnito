@@ -1,6 +1,6 @@
-package com.AloBomnito.service.copy;
-import com.AloBomnito.AdminRepository.copy.*;
-import com.AloBomnito.modelo.copy.*;
+package com.AloBomnito.services;
+import com.AloBomnito.modelos.Administrador;
+import com.AloBomnito.repository.AdministradorRepository;
 
 import org.springframework.stereotype.Service;
 

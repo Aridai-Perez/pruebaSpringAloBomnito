@@ -1,4 +1,4 @@
-package com.AloBomnito.controller.copy;
+package com.AloBomnito.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.AloBomnito.modelo.copy.*;
-import com.AloBomnito.service.copy.*;
+import com.AloBomnito.modelos.Administrador;
+import com.AloBomnito.services.AdministradoresService;
 
 
 @RestController
