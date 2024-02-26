@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 @Service
 public class AdministradoresService {
 	
@@ -20,15 +19,15 @@ public class AdministradoresService {
 		return adminRepository.findAll();
 	}
 	
-	public Optional<Administrador> getAdmin(Integer idAdministrador){
-		return adminRepository.findById(idAdministrador);
+	public Optional<Administrador> getAdmin(Integer id_administrador){
+		return adminRepository.findById(id_administrador);
 	}
 	
-	public void saveOrUpdate(Administrador administrador) {
-		adminRepository.save(administrador);
+	public Administrador saveOrUpdate(Administrador administrador) {
+		return adminRepository.save(administrador);
 	}
 	
-	public void delete(Integer idAdministrador) {
-		adminRepository.deleteById(idAdministrador);
+	public void delete(Integer id_administrador) {
+		adminRepository.deleteById(id_administrador);
 	}
 }
