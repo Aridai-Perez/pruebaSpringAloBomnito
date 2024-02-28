@@ -49,55 +49,69 @@ public class Administrador {
 	public Administrador(){
 		
 	}
-	
-	public Administrador(int id_administrador, String nombre, String contrasenia, String correo, String numAdministrador) {
+
+
+	public Administrador(int id_administrador, String nombre, String contrasenia, String correo,
+			String num_administrador, Set<Producto> productos, Set<Producto> producto, Set<Ingrediente> ingredientes) {
 		super();
 		this.id_administrador = id_administrador;
 		this.nombre = nombre;
 		this.contrasenia = contrasenia;
 		this.correo = correo;
-		this.num_administrador = numAdministrador;
+		this.num_administrador = num_administrador;
+		this.productos = productos;
+		this.producto = producto;
+		this.ingredientes = ingredientes;
 	}
+
 
 	public int getId_administrador() {
 		return id_administrador;
 	}
 
+
 	public void setId_administrador(int id_administrador) {
 		this.id_administrador = id_administrador;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getContrasenia() {
 		return contrasenia;
 	}
 
+
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
+
 
 	public String getCorreo() {
 		return correo;
 	}
 
+
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+
 
 	public String getNum_administrador() {
 		return num_administrador;
 	}
 
+
 	public void setNum_administrador(String num_administrador) {
 		this.num_administrador = num_administrador;
 	}
-	
 	
 }

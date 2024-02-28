@@ -22,7 +22,7 @@ public class Producto {
 	@Column(name = "contenido", nullable = false, length = 10)
 	private String contenido;
 	
-	@Column(name = "descrpcion", nullable = false, length = 1000)
+	@Column(name = "descripcion", nullable = false, length = 1000)
 	private String descripcion;
 	
 	@Column(name = "modo_uso", nullable = false, length = 500)
@@ -74,7 +74,9 @@ public class Producto {
 	}
 
 	public Producto(int id_producto, String nombre, String marca, String contenido, String descripcion, String modo_uso,
-			String tipo_piel, String cantidad_existencia, double precio) {
+			String tipo_piel, String cantidad_existencia, double precio, Set<ImagenProducto> imagenesProductos,
+			Set<Ingrediente> ingrediente, Set<Administrador> administrador, Administrador administradores,
+			Set<Compras> comprar) {
 		super();
 		this.id_producto = id_producto;
 		this.nombre = nombre;
@@ -85,6 +87,11 @@ public class Producto {
 		this.tipo_piel = tipo_piel;
 		this.cantidad_existencia = cantidad_existencia;
 		this.precio = precio;
+		this.imagenesProductos = imagenesProductos;
+		this.ingrediente = ingrediente;
+		this.administrador = administrador;
+		this.administradores = administradores;
+		this.comprar = comprar;
 	}
 
 	public int getId_producto() {
@@ -157,6 +164,22 @@ public class Producto {
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	public Set<ImagenProducto> getImagenesProductos() {
+		return imagenesProductos;
+	}
+
+	public void setImagenesProductos(Set<ImagenProducto> imagenesProductos) {
+		this.imagenesProductos = imagenesProductos;
+	}
+
+	public Set<Ingrediente> getIngrediente() {
+		return ingrediente;
+	}
+
+	public void setIngrediente(Set<Ingrediente> ingrediente) {
+		this.ingrediente = ingrediente;
 	}
 
 }

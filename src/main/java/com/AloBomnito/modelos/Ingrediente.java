@@ -40,12 +40,15 @@ public class Ingrediente {
 	
 	public Ingrediente() {
 	}
-	
-	public Ingrediente(Integer id_ingrediente, String nombre, String funcion) {
+
+	public Ingrediente(Integer id_ingrediente, String nombre, String funcion, Set<Producto> productos,
+			Administrador administrador) {
 		super();
 		this.id_ingrediente = id_ingrediente;
 		this.nombre = nombre;
 		this.funcion = funcion;
+		this.productos = productos;
+		this.administrador = administrador;
 	}
 
 	public Integer getId_ingrediente() {

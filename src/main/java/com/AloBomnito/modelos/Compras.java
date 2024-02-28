@@ -25,32 +25,38 @@ public class Compras {
 	@ManyToOne
 	@JoinColumn(name = "id_producto", nullable = false)
 	private Producto producto;
-	
 
-	public Compras(Integer id_compra, Integer cantidad_producto) {
-		super();
-		this.cantidad_producto = cantidad_producto;
-		this.id_compra = id_compra;
-	}
 	
 	public Compras() {
 	}
 
-	public Integer getCantidadProducto() {
-		return cantidad_producto;
+
+	public Compras(int id_compra, int cantidad_producto, Cliente cliente, Producto producto) {
+		super();
+		this.id_compra = id_compra;
+		this.cantidad_producto = cantidad_producto;
+		this.cliente = cliente;
+		this.producto = producto;
 	}
 
-	public void setCantidadProducto(Integer cantidad_producto) {
-		this.cantidad_producto = cantidad_producto;
-	}
 
 	public int getId_compra() {
 		return id_compra;
 	}
 
+
 	public void setId_compra(int id_compra) {
 		this.id_compra = id_compra;
 	}
-	
-	
+
+
+	public int getCantidad_producto() {
+		return cantidad_producto;
+	}
+
+
+	public void setCantidad_producto(int cantidad_producto) {
+		this.cantidad_producto = cantidad_producto;
+	}
+
 }

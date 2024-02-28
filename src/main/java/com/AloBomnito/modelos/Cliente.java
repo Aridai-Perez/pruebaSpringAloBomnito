@@ -38,14 +38,14 @@ public class Cliente {
 	//Relacion a tabla compras ManytoMany
 	@OneToMany(mappedBy = "cliente")
 	private Set<Compras> comprar = new HashSet<>();
-	
 
-	public Cliente(int id_cliente, String nombre, String correo, String contrasenia) {
+	public Cliente(int id_cliente, String nombre, String correo, String contrasenia, Set<Compras> comprar) {
 		super();
 		this.id_cliente = id_cliente;
 		this.nombre = nombre;
 		this.correo = correo;
 		this.contrasenia = contrasenia;
+		this.comprar = comprar;
 	}
 
 	public int getId_cliente() {
@@ -78,6 +78,14 @@ public class Cliente {
 
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
+	}
+
+	public Set<Compras> getComprar() {
+		return comprar;
+	}
+
+	public void setComprar(Set<Compras> comprar) {
+		this.comprar = comprar;
 	}
 	
 }
