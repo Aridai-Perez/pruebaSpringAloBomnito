@@ -26,7 +26,7 @@ public class Cliente {
 	@Column(name = "correo", nullable = false, unique = true)
 	private String correo;
 	
-	@Column(name = "contasenia", nullable = false)
+	@Column(name = "contrasenia", nullable = false, length = 150)
 	private String contrasenia;
 	
 	public Cliente(){
@@ -87,5 +87,5 @@ public class Cliente {
 	public void setComprar(Set<Compras> comprar) {
 		this.comprar = comprar;
 	}
-	
+
 }
