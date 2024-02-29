@@ -36,22 +36,13 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: java-app
       
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EAE2FEA94BF2496BBF1E904335D4F43D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F4C8C25F679443DBAB92D6649A62CA34 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2D2778D7FC2C4C0891AA45D7A8525674 }}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -59,4 +50,4 @@ jobs:
           app-name: 'AloBomnito'
           slot-name: 'Production'
           package: '*.jar'
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EB7AF91500EE4A1A85AC202ED4CD1873 }}
