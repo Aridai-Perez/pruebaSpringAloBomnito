@@ -21,20 +21,20 @@ import com.AloBomnito.services.AdministradoresService;
 @CrossOrigin(origins="*")
 @RequestMapping(path = "api/v1/Admins")
 public class AdministradorController {
-	
+
 	@Autowired
 	private final AdministradoresService administradoresService = new AdministradoresService();
-	
+
 	@GetMapping
 	public List<Administrador> getAll(){
 		return administradoresService.getAdmins();
 	}
-	
+
 	@PostMapping
 	public Administrador saveOrUpdate(@RequestBody Administrador administrador){
 		return administradoresService.saveOrUpdate(administrador);
 	}
-	
+
 	@DeleteMapping("/{id_administrador}")
 	public void delete(@PathVariable Integer id_administrador){
 		administradoresService.delete(id_administrador);
@@ -44,6 +44,6 @@ public class AdministradorController {
 	public Optional<Administrador> getById(@PathVariable("id_administrador") Integer id_administrador){
 		return administradoresService.getAdmin(id_administrador);
 	}
-	
+
 }
 

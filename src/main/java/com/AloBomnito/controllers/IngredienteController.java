@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.AloBomnito.modelos.Ingrediente;
 import com.AloBomnito.services.IngredienteService;
 
@@ -22,26 +21,26 @@ import com.AloBomnito.services.IngredienteService;
 @RequestMapping(path = "api/v1/ingrediente")
 
 public class IngredienteController {
-	
-	
+
+
 	@Autowired
 	private IngredienteService ingredienteService;
-	
+
 	@GetMapping
 	public List<Ingrediente> getAll(){
 		return ingredienteService.getIngredientes();
 	}
-	
+
 	@GetMapping("/{id_ingrediente}")
 	public Optional<Ingrediente> getbyId(@PathVariable("id_ingrediente") Integer id_ingrediente){
 		return ingredienteService.getIngrediente(id_ingrediente);
 	}
-	
+
 	@PostMapping
 	public Ingrediente saveUpdate(@RequestBody Ingrediente ingrediente){
 		return ingredienteService.saveOrUpdate(ingrediente);
 	}
-	
+
 	@DeleteMapping ("/{id_ingrediente}")
 	public void saveUpdate(@PathVariable Integer id_ingrediente){
 		ingredienteService.delete(id_ingrediente);

@@ -16,12 +16,12 @@ public class CustomUserDetailsService implements UserDetailsService{
 
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Cliente user = clienteRepository.findByNombre(username)
 				.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
-		
+
 		return org.springframework.security.core.userdetails.User
 				.withUsername(user.getNombre())
 				.password(user.getContrasenia())
@@ -32,6 +32,6 @@ public class CustomUserDetailsService implements UserDetailsService{
 				.disabled(false)
 				.build();
 	}
-	
+
 
 }

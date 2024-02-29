@@ -15,29 +15,29 @@ import jakarta.persistence.Table;
 @Entity (name = "ingrediente")
 @Table (name = "ingrediente")
 public class Ingrediente {
-	@Id	
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private Integer id_ingrediente;
-		
+
 	@Column(nullable = false)
 	private String nombre;
-		
+
 	@Column(nullable = false)
 	private String funcion;
 
-	
+
 	//Relaciones
-	
+
 	//relacion a tabla componer
 	@ManyToMany(mappedBy = "ingrediente")
 	private Set<Producto> productos;
-	
+
 	//relacion con administrador
 	@ManyToOne
 	@JoinColumn(name = "id_administrador", nullable = false)
 	private Administrador administrador;
-	
+
 	public Ingrediente() {
 	}
 
@@ -74,5 +74,5 @@ public class Ingrediente {
 	public void setFuncion(String funcion) {
 		this.funcion = funcion;
 	}
-	
+
 }

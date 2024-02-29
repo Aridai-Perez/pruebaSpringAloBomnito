@@ -14,27 +14,27 @@ import jakarta.persistence.Table;
 @Entity (name = "cliente")
 @Table (name = "cliente")
 public class Cliente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cliente", unique = true, nullable = false )
 	private int id_cliente;
-	
+
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
-	
+
 	@Column(name = "correo", nullable = false, unique = true)
 	private String correo;
-	
+
 	@Column(name = "contrasenia", nullable = false, length = 150)
 	private String contrasenia;
-	
+
 	public Cliente(){
-		
+
 	}
-	
+
 	//--------RelacionShip
-	
+
 	//Relacion a tabla compras ManytoMany
 	@OneToMany(mappedBy = "cliente")
 	private Set<Compras> comprar = new HashSet<>();

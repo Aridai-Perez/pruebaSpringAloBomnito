@@ -1,26 +1,31 @@
 package com.AloBomnito.modelos;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity (name = "imagenproducto")
 @Table (name = "imagenproducto")
 public class ImagenProducto {
-	
+
 	@Id
 	@Column(name = "nombre_imagen", nullable = false, unique = true, length = 50)
 	private String nombre_imagen;
-	
-	
+
+
 	@Column(name = "url", unique = true, length = 500)
 	private String url;
-	
+
 	// -------------- Relationships
 	//relacion a tabla producto
 	@ManyToOne
 	@JoinColumn(name = "id_producto", nullable = false)
 	private Producto producto;
 
-	
+
 	public ImagenProducto() {
 		super();
 	}

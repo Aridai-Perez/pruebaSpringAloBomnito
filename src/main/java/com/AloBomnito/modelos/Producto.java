@@ -3,7 +3,19 @@ package com.AloBomnito.modelos;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity (name = "producto")
 @Table (name = "producto")
@@ -12,38 +24,38 @@ public class Producto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_producto", nullable = false)
 	private int id_producto;
-	
+
 	@Column(name = "nombre", unique = true, nullable = false, length = 50)
 	private String nombre;
-	
+
 	@Column(name = "marca", nullable = false, length = 30)
 	private String marca;
-	
+
 	@Column(name = "contenido", nullable = false, length = 10)
 	private String contenido;
-	
+
 	@Column(name = "descripcion", nullable = false, length = 1000)
 	private String descripcion;
-	
+
 	@Column(name = "modo_uso", nullable = false, length = 500)
 	private String modo_uso;
-	
+
 	@Column(name = "tipo_piel", nullable = false, length = 10)
 	private String tipo_piel;
-	
+
 	@Column(name = "cantidad_existencia", nullable = false)
 	private String cantidad_existencia;
-	
+
 	@Column(name = "precio", nullable = false)
 	private double precio;
-	
+
 	// -------------- Relationships
-	
+
 	//relacion a imagenes
 	@OneToMany(mappedBy = "producto")
 	private Set<ImagenProducto> imagenesProductos = new HashSet<>();
-	
-	
+
+
 	//relacion a ingredientes
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
@@ -51,24 +63,24 @@ public class Producto {
             inverseJoinColumns =  @JoinColumn(name = "id_ingrediente", referencedColumnName = "id_ingrediente")
     )
 	private Set<Ingrediente> ingrediente = new HashSet<>();
-	
-	
+
+
 	//relacion a administrador many to many
 	@ManyToMany(mappedBy = "productos")
     private Set<Administrador> administrador;
-	
-	
+
+
 	//relacion  a administrador many to one
 	@ManyToOne
 	@JoinColumn(name = "id_administrador", nullable = false)
 	private Administrador administradores;
-	
-	
+
+
 	//relacion a tabla compras
 	@OneToMany(mappedBy = "producto")
 	private Set<Compras> comprar = new HashSet<>();
-	
-	
+
+
 	public Producto() {
 		super();
 	}

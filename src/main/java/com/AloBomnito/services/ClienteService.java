@@ -14,21 +14,21 @@ public class ClienteService {
 
 	@Autowired
 	ClienteRepository clienteRepository;
-	
+
 	public List<Cliente> getClientes(){
 		return clienteRepository.findAll();
 	}
-	
+
 	public Optional<Cliente> getCliente(Integer id_cliente){
 		return clienteRepository.findById(id_cliente);
 	}
-	
+
 	public Cliente saveOrUpdate(Cliente cliente){
 		return clienteRepository.save(cliente);
 	}
-	
+
 	public void delete(Integer id_cliente) {
 		clienteRepository.deleteById(id_cliente);
 	}
-	
+
 }

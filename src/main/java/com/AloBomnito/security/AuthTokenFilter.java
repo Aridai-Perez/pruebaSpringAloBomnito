@@ -22,10 +22,10 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 	@Autowired
 	private JwtUtils jwtUtils;
-	
+
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
-	
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -40,10 +40,10 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 		} catch (Exception e) {
 			logger.error("Cannot set user auth", e);
 		}
-		
+
 		filterChain.doFilter(request, response);
 	}
-	
+
 	private String parseJwt(HttpServletRequest request) {
 		String headerAuth = request.getHeader("Authorization");
 		return (headerAuth != null && headerAuth.startsWith("Bearer "))

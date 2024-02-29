@@ -19,10 +19,10 @@ import com.AloBomnito.utils.JwtUtils;
 public class AuthController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private JwtUtils jwtUtils;
-	
+
 	@PostMapping("/login")
 	public ResponseEntity<?> authenticateUser(
 			@RequestParam("username") String username,
@@ -33,9 +33,9 @@ public class AuthController {
 				);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
-		
+
 		return ResponseEntity.ok(new JwtResponse(jwt));
 	}
-	
-	
+
+
 }

@@ -1,32 +1,39 @@
 package com.AloBomnito.modelos;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity (name = "comprar")
 @Table (name = "comprar")
 public class Compras {
-	
-	@Id	
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_compra", unique = true, nullable = false)
 	private int id_compra;
-	
+
 	@Column(nullable = false)
 	private int cantidad_producto;
-	
+
 	//-------------Relaciones
-	
+
 	// Relacion a tabla cliente
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", nullable = false)
 	private Cliente cliente;
-	
+
 	//relacion a tabla producto
 	@ManyToOne
 	@JoinColumn(name = "id_producto", nullable = false)
 	private Producto producto;
 
-	
+
 	public Compras() {
 	}
 
