@@ -34,14 +34,14 @@ public class ImagenProductoController {
 		return imagenesProductosServices.saveOrUpdate(imagenproducto);
 	}
 	
-	@DeleteMapping("/{id_producto}")
-	public void saveUpdate(@PathVariable Integer id_producto) {
-		imagenesProductosServices.delete(id_producto);
-	}
+//	@DeleteMapping("/{id_producto}")
+//	public void saveUpdate(@PathVariable Integer id_producto) {
+//		imagenesProductosServices.delete(id_producto);
+//	}
 	
-	@GetMapping("/{id_producto}")
-	public Optional<ImagenProducto> getById(@PathVariable("id_producto") Integer id_producto){
-		return imagenesProductosServices.getImg(id_producto);
-	}
+//	@GetMapping("/{id_producto}")
+//	public Optional<ImagenProducto> getById(@PathVariable("id_producto") Integer id_producto){
+//		return imagenesProductosServices.getImg(id_producto);
+//	}
 
 }

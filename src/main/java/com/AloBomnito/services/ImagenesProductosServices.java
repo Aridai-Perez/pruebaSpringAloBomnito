@@ -19,16 +19,16 @@ public class ImagenesProductosServices {
 		return imgProdRepository.findAll();
 	}
 	
-	public Optional<ImagenProducto> getImg(Integer id_producto){
-		return imgProdRepository.findById(id_producto);
-	}
+//	public Optional<ImagenProducto> getImg(Integer id_producto){
+//		return imgProdRepository.findById(id_producto);
+//	}
 	
 	public ImagenProducto saveOrUpdate(ImagenProducto imagenproducto) {
 		return imgProdRepository.save(imagenproducto);
 	}
 	
-	public void delete(Integer id_producto) {
-		imgProdRepository.deleteById(id_producto);
-	}
+//	public void delete(Integer id_producto) {
+//		imgProdRepository.deleteById(id_producto);
+//	}
 
 }
