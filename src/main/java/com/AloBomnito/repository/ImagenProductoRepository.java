@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.AloBomnito.modelos.ImagenProducto;
 
 @Repository
-public interface ImagenProductoRepository extends JpaRepository<ImagenProducto, String>{
+public interface ImagenProductoRepository extends JpaRepository<ImagenProducto, Integer>{
 
 }

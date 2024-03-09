@@ -36,15 +36,20 @@ public class ComprasController {
 		return comprasService.getCompra(id_compra);
 	}
 
-
 	@PostMapping
 	public Compras saveUpdate(@RequestBody Compras compras){
-		return comprasService.saveOrUpdate(compras);
+		return comprasService.saveCompra(compras);
+	}
+	
+	@PostMapping("editar/{id_compra}")
+	public Compras editarCliente(@RequestBody Compras compra, @PathVariable Integer id_compra) {
+		compra.setId_compra(id_compra);
+		return comprasService.updateCompra(compra);
 	}
 
 	@DeleteMapping ("/{id_compra}")
 	public void saveUpdate(@PathVariable("id_compra") Integer id_compra){
-		comprasService.delete(id_compra);
+		comprasService.deleteCompra(id_compra);
 	}
 
 }

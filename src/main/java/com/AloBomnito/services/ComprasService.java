@@ -11,6 +11,7 @@ import com.AloBomnito.repository.ComprasRepository;
 
 @Service
 public class ComprasService {
+	
 	@Autowired
 	ComprasRepository comprasRepository;
 
@@ -22,11 +23,16 @@ public class ComprasService {
 		return comprasRepository.findById(id);
 	}
 
-	public Compras saveOrUpdate(Compras compra) {
+	public Compras saveCompra(Compras compra) {
+		return comprasRepository.save(compra);
+	}
+	
+	public Compras updateCompra(Compras compra) {
 		return comprasRepository.save(compra);
 	}
 
-	public void delete(Integer id) {
+	public void deleteCompra(Integer id) {
 		comprasRepository.deleteById(id);
 	}
+	
 }

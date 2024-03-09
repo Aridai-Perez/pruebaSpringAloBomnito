@@ -1,8 +1,7 @@
 package com.AloBomnito.modelos;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,17 +28,17 @@ public class Cliente {
 	@Column(name = "contrasenia", nullable = false, length = 150)
 	private String contrasenia;
 
+	//--------RelacionShip
+	
+	//Relacion a tabla compras ManytoMany
+	@OneToMany(mappedBy = "id_cliente")
+	private List<Compras> comprar = new ArrayList<>();
+	
 	public Cliente(){
 
 	}
 
-	//--------RelacionShip
-
-	//Relacion a tabla compras ManytoMany
-	@OneToMany(mappedBy = "cliente")
-	private Set<Compras> comprar = new HashSet<>();
-
-	public Cliente(int id_cliente, String nombre, String correo, String contrasenia, Set<Compras> comprar) {
+	public Cliente(int id_cliente, String nombre, String correo, String contrasenia, List<Compras> comprar) {
 		super();
 		this.id_cliente = id_cliente;
 		this.nombre = nombre;
@@ -78,14 +77,6 @@ public class Cliente {
 
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
-	}
-
-	public Set<Compras> getComprar() {
-		return comprar;
-	}
-
-	public void setComprar(Set<Compras> comprar) {
-		this.comprar = comprar;
 	}
 
 }

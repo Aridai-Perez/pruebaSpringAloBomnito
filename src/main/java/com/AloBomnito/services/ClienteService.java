@@ -23,11 +23,15 @@ public class ClienteService {
 		return clienteRepository.findById(id_cliente);
 	}
 
-	public Cliente saveOrUpdate(Cliente cliente){
+	public Cliente saveCliente(Cliente cliente){
+		return clienteRepository.save(cliente);
+	}
+	
+	public Cliente updateCliente(Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 
-	public void delete(Integer id_cliente) {
+	public void deleteCliente(Integer id_cliente) {
 		clienteRepository.deleteById(id_cliente);
 	}
 

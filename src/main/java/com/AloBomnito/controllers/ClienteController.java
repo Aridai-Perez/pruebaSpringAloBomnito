@@ -30,19 +30,25 @@ public class ClienteController {
 		return clienteService.getClientes();
 	}
 
+	@GetMapping("/{id_cliente}")
+	public Optional<Cliente> getById(@PathVariable("id_cliente") Integer id_cliente){
+		return clienteService.getCliente(id_cliente);
+	}
+	
 	@PostMapping
-	public Cliente saveOrUpdate(@RequestBody Cliente cliente){
-		return clienteService.saveOrUpdate(cliente);
+	public Cliente crearCliente(@RequestBody Cliente cliente){
+		return clienteService.saveCliente(cliente);
+	}
+	
+	@PostMapping("editar/{id_cliente}")
+	public Cliente editarCliente(@RequestBody Cliente cliente, @PathVariable Integer id_cliente){
+		cliente.setId_cliente(id_cliente);
+		return clienteService.updateCliente(cliente);
 	}
 
 	@DeleteMapping("/{id_cliente}")
 	public void delete(@PathVariable Integer id_cliente){
-		clienteService.delete(id_cliente);
-	}
-
-	@GetMapping("/{id_cliente}")
-	public Optional<Cliente> getById(@PathVariable("id_cliente") Integer id_cliente){
-		return clienteService.getCliente(id_cliente);
+		clienteService.deleteCliente(id_cliente);
 	}
 
 }

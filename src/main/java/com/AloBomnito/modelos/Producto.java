@@ -15,6 +15,8 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+//import jakarta.persistence.ManyToOne;
+//import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity (name = "producto")
@@ -52,43 +54,43 @@ public class Producto {
 	// -------------- Relationships
 
 	//relacion a imagenes
-	@OneToMany(mappedBy = "producto")
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<ImagenProducto> imagenesProductos = new HashSet<>();
-
 
 	//relacion a ingredientes
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "componer", joinColumns = @JoinColumn(name = "id_producto", referencedColumnName = "id_producto"),
-            inverseJoinColumns =  @JoinColumn(name = "id_ingrediente", referencedColumnName = "id_ingrediente")
+            inverseJoinColumns = @JoinColumn(name = "id_ingrediente", referencedColumnName = "id_ingrediente")
     )
 	private Set<Ingrediente> ingrediente = new HashSet<>();
 
 
 	//relacion a administrador many to many
-	@ManyToMany(mappedBy = "productos")
-    private Set<Administrador> administrador;
+//	@ManyToMany(mappedBy = "productos")
+//    private Set<Administrador> administradores;
 
 
 	//relacion  a administrador many to one
-	@ManyToOne
-	@JoinColumn(name = "id_administrador", nullable = false)
-	private Administrador administradores;
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id_administrador")
+	private Administrador administrador;
 
 
-	//relacion a tabla compras
-	@OneToMany(mappedBy = "producto")
+//	//relacion a tabla compras
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_compra", referencedColumnName = "id_producto")
 	private Set<Compras> comprar = new HashSet<>();
 
 
 	public Producto() {
-		super();
+
 	}
 
 	public Producto(int id_producto, String nombre, String marca, String contenido, String descripcion, String modo_uso,
 			String tipo_piel, String cantidad_existencia, double precio, Set<ImagenProducto> imagenesProductos,
-			Set<Ingrediente> ingrediente, Set<Administrador> administrador, Administrador administradores,
-			Set<Compras> comprar) {
+			Set<Ingrediente> ingrediente, Administrador administrador, Set<Compras> comprar) {
 		super();
 		this.id_producto = id_producto;
 		this.nombre = nombre;
@@ -102,7 +104,6 @@ public class Producto {
 		this.imagenesProductos = imagenesProductos;
 		this.ingrediente = ingrediente;
 		this.administrador = administrador;
-		this.administradores = administradores;
 		this.comprar = comprar;
 	}
 
@@ -192,6 +193,22 @@ public class Producto {
 
 	public void setIngrediente(Set<Ingrediente> ingrediente) {
 		this.ingrediente = ingrediente;
+	}
+
+	public Administrador getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(Administrador administrador) {
+		this.administrador = administrador;
+	}
+
+	public Set<Compras> getComprar() {
+		return comprar;
+	}
+
+	public void setComprar(Set<Compras> comprar) {
+		this.comprar = comprar;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.AloBomnito.services;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,9 @@ public class ImagenesProductosServices {
 		return imgProdRepository.findAll();
 	}
 
-//	public Optional<ImagenProducto> getImg(Integer id_producto){
-//		return imgProdRepository.findById(id_producto);
-//	}
+	public Optional<ImagenProducto> getImg(Integer id_imagen){
+		return imgProdRepository.findById(id_imagen);
+	}
 
 	public ImagenProducto saveOrUpdate(ImagenProducto imagenproducto) {
 		return imgProdRepository.save(imagenproducto);

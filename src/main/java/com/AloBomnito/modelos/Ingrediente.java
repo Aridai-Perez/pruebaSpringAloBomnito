@@ -2,19 +2,23 @@ package com.AloBomnito.modelos;
 
 import java.util.Set;
 
+//import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+//import jakarta.persistence.ManyToOne;
+//import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity (name = "ingrediente")
 @Table (name = "ingrediente")
 public class Ingrediente {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
@@ -34,21 +38,21 @@ public class Ingrediente {
 	private Set<Producto> productos;
 
 	//relacion con administrador
-	@ManyToOne
-	@JoinColumn(name = "id_administrador", nullable = false)
-	private Administrador administrador;
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "id_admin")
+//	private Administrador admin_creador;
 
 	public Ingrediente() {
 	}
 
 	public Ingrediente(Integer id_ingrediente, String nombre, String funcion, Set<Producto> productos,
-			Administrador administrador) {
+			Administrador admin_creador) {
 		super();
 		this.id_ingrediente = id_ingrediente;
 		this.nombre = nombre;
 		this.funcion = funcion;
 		this.productos = productos;
-		this.administrador = administrador;
+//		this.admin_creador = admin_creador;
 	}
 
 	public Integer getId_ingrediente() {
@@ -74,5 +78,13 @@ public class Ingrediente {
 	public void setFuncion(String funcion) {
 		this.funcion = funcion;
 	}
+
+//	public Administrador getAdmin_creador() {
+//		return admin_creador;
+//	}
+//
+//	public void setAdmin_creador(Administrador admin_creador) {
+//		this.admin_creador = admin_creador;
+//	}
 
 }
