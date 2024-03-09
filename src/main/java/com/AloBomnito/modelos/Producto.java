@@ -80,7 +80,7 @@ public class Producto {
 
 //	//relacion a tabla compras
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_compra", referencedColumnName = "id_producto")
+	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<Compras> comprar = new HashSet<>();
 
 
