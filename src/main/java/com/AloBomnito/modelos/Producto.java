@@ -46,7 +46,7 @@ public class Producto {
 	private String tipo_piel;
 
 	@Column(name = "cantidad_existencia", nullable = false)
-	private String cantidad_existencia;
+	private int cantidad_existencia;
 
 	@Column(name = "precio", nullable = false)
 	private double precio;
@@ -89,7 +89,7 @@ public class Producto {
 	}
 
 	public Producto(int id_producto, String nombre, String marca, String contenido, String descripcion, String modo_uso,
-			String tipo_piel, String cantidad_existencia, double precio, Set<ImagenProducto> imagenesProductos,
+			String tipo_piel, int cantidad_existencia, double precio, Set<ImagenProducto> imagenesProductos,
 			Set<Ingrediente> ingrediente, Administrador administrador, Set<Compras> comprar) {
 		super();
 		this.id_producto = id_producto;
@@ -163,11 +163,11 @@ public class Producto {
 		this.tipo_piel = tipo_piel;
 	}
 
-	public String getCantidad_existencia() {
+	public int getCantidad_existencia() {
 		return cantidad_existencia;
 	}
 
-	public void setCantidad_existencia(String cantidad_existencia) {
+	public void setCantidad_existencia(int cantidad_existencia) {
 		this.cantidad_existencia = cantidad_existencia;
 	}
 
